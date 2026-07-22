@@ -1,0 +1,45 @@
+diff --git a/templates/index.html b/templates/index.html
+index fcc7f33..64c9c90 100644
+--- a/templates/index.html
++++ b/templates/index.html
+@@ -1,6 +1,7 @@
+ {{ template "head.html" . }}
+ {{ template "nav.html" . }}
+ {{ $imageFilter := .imageFilter }}
++{{$fullNames := .fullNames}}
+ 
+ <div class="container">
+     <h2>Leaderboard</h2>
+@@ -17,7 +18,7 @@
+     {{ end }}
+     <div class="filterbuttons">
+         {{ if $imageFilter }}
+-        <p style="color: white; argin-right: 1rem;">
++        <p style="color: white; margin-right: 1rem;">
+             Only showing <span style="color: {{ $imageFilter.Color }}"><b>{{ $imageFilter.Name }}</b></span>!
+         </p>
+         &nbsp;
+@@ -50,6 +51,9 @@
+             <thead class="thead-dark">
+                 <th>Rank</th>
+                 <th>Team</th>
++                {{ if $fullNames }}
++                <th>Name</th>
++                {{ end }}
+                 {{ if not $imageFilter }}
+                 <th>Image(s)</th>
+                 {{ end }}
+@@ -75,6 +79,13 @@
+                             {{ $team.Alias }}
+                         </a>
+                     </td>
++                    {{ if $fullNames }}
++                    <td>
++                        <a href="{{ $linktext }}">
++                            {{ $team.FullName }}
++                        </a>
++                    </td>
++                    {{ end }}
+                     {{ if not $imageFilter }}
+                     <td>
+                         <a href="{{ $linktext }}">

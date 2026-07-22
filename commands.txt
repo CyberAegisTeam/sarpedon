@@ -1,0 +1,2 @@
+killall sarpedon
+nohup ./sarpedon &>./logs/mock3.txt 2>&1

@@ -1,0 +1,36 @@
+nohup: ignoring input
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (10): 
+	- error.html
+	- feet.html
+	- head.html
+	- login.html
+	- announce.html
+	- detail.html
+	- index.html
+	- nav.html
+	- settings.html
+	- 
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /login                    --> main.main.func2 (4 handlers)
+[GIN-debug] GET    /                         --> main.viewScoreboard (4 handlers)
+[GIN-debug] GET    /announcements            --> main.viewAnnounce (4 handlers)
+[GIN-debug] GET    /status/:id/:image        --> main.getStatus (4 handlers)
+[GIN-debug] POST   /login                    --> main.login (4 handlers)
+[GIN-debug] POST   /update                   --> main.scoreUpdate (4 handlers)
+[GIN-debug] GET    /team/:team               --> main.viewTeam (4 handlers)
+[GIN-debug] GET    /image/:image             --> main.viewImage (4 handlers)
+[GIN-debug] GET    /team/:team/image/:image  --> main.viewTeamImage (4 handlers)
+[GIN-debug] GET    /logout                   --> main.logout (5 handlers)
+[GIN-debug] GET    /settings                 --> main.viewSettings (5 handlers)
+[GIN-debug] POST   /settings                 --> main.changeSettings (5 handlers)
+[GIN-debug] GET    /export                   --> main.exportCsv (5 handlers)
+Initializing scoreboard data...
+Refreshing mongodb connection...

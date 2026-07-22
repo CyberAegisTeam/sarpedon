@@ -1,0 +1,105 @@
+{{ template "head.html" . }}
+{{ template "nav.html" . }}
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<div class="container">
+    <h2>Settings</h2>
+    {{ if .err }}
+    <center>
+        <br>
+        <p style="color: lightred">{{ .err }}</p>
+    </center>
+    {{ end }}
+    <center>
+        <hr>
+    </center>
+    <h4 style="margin-bottom: 1.6rem">Make Announcement</h4>
+    <form method="POST">
+        <input id="prodId" name="settingType" type="hidden" value="announcement">
+        <div class="form-group">
+            <input name="title" type="text" class="form-control" id="announceTitle" placeholder="Announcement Title" required>
+        </div>
+        <div class="form-group">
+            <textarea name="body" class="form-control" id="announceBody" rows="3" placeholder="Announcement Body" required></textarea>
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+    {{ if .msg }}
+    <center>
+        <br>
+        <p style="color: lightgreen">{{ .msg }}</p>
+    </center>
+    {{ end }}
+
+    <center>
+        <hr>
+    </center>
+
+    <form method="POST" style="text-align: center;">
+        <input id="prodId" name="settingType" type="hidden" value="toggleScoring">
+
+        <h4>Toggle Scoring</h4>
+        <br>
+        {{ if .scoring }}
+            <button type="submit" class="btn btn-danger">Stop Scoring</button>
+        {{ else }}
+            <button type="submit" class="btn btn-primary">Start Scoring</button>
+        {{ end }}
+    </form>
+
+    <center>
+        <hr>
+    </center>
+
+    <form method="POST" style="text-align: center;">
+        <input id="prodId" name="settingType" type="hidden" value="disableTestingID">
+
+        <h4>Clear Testing ID Score</h4>
+        <br>
+        <button type="submit" class="btn btn-danger">Clear</button>
+    </form>
+
+    <center>
+        <hr>
+    </center>
+
+    {{ if .isLead }}
+    <h4 style="margin-bottom: 1.6rem">Adjust Score</h4>
+    <form method="POST">
+        <input name="settingType" type="hidden" value="adjustScore">
+        <div class="form-group">
+            <input name="alias" type="text" class="form-control" list="teamAliases" placeholder="Team alias" required>
+            <datalist id="teamAliases">
+                {{ range .config.Team }}
+                <option value="{{ .Alias }}"></option>
+                {{ end }}
+            </datalist>
+        </div>
+        <div class="form-group">
+            <input name="adjustment" type="number" class="form-control" placeholder="Adjustment in points, e.g. 5 or -3" required>
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-warning">Apply Adjustment</button>
+        </div>
+    </form>
+
+    <center>
+        <hr>
+    </center>
+    {{ end }}
+
+    <form method="POST" style="text-align: center;">
+        <input id="prodId" name="settingType" type="hidden" value="wipeDatabase">
+
+        <h4>Wipe Database</h4>
+        <p>(Erases All Scores, Use With Caution)</p>
+        <button type="submit" class="btn btn-danger">Wipe Database</button>
+    </form>
+    <br>
+</div>
+<!-- End Document
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+{{ template "feet.html" }}

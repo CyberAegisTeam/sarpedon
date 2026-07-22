@@ -1,0 +1,57 @@
+event = "OPERATION TITAN SHIELD"
+password = "Lyuh1lsnAA"
+#password = 'HgUOkflkUH198Yb1O8LHQ1DAFWHY91Oh99HOm1'
+timezone = "America/Los_Angeles"
+
+[[admin]]
+username = "admin"
+password = "aegis!@#"
+
+#[[image]]
+#name = "Ubuntu20_ICC"
+#color = "#FFFFFF"
+
+[[image]]
+name = "sedona"
+color = "#d6a77a"
+
+#[[image]]
+#name = "bravo"
+#color = "#d1863b"
+
+[[image]]
+name = "hollowdark"
+color = "#822828"
+
+[[image]]
+name = "janjira"
+color = "#356536"
+
+[[image]]
+name = "yunnan"
+color = "#518a93"
+
+[[team]]
+id = "testing_id"
+alias = "testing_id"
+email = "none@mail.com"
+
+[[team]]
+id = "jBDtszJx"
+alias = "Team1"
+email = "Akshay Rohatgi"
+
+[[team]]
+id = "hDhMFoNw"
+alias = "Team2"
+email = "Yash Parikh"
+
+[[team]]
+id = "gBfKSNTr"
+alias = "CyberAegisDrift"
+email = "Aarav Arora"
+
+[[team]]
+id = "qsqUdTDl"
+alias = "Te"
+email = "Mihir Bapat"

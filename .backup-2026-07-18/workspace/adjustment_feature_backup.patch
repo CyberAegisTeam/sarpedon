@@ -1,0 +1,349 @@
+diff --git a/db.go b/db.go
+index 7ee6bbf..2518544 100644
+--- a/db.go
++++ b/db.go
+@@ -56,9 +56,14 @@ type imageData struct {
+ }
+ 
+ type teamData struct {
+-	ID, Alias, Email  string
+-	ImageCount, Score int
+-	Time              string
++	ID, Alias, Email, FullName string
++	ImageCount, Score, Adjust, Total int
++	Time                        string
++}
++
++type teamAdjustment struct {
++	TeamID string `bson:"teamid,omitempty"`
++	Adjust int    `bson:"adjust,omitempty"`
+ }
+ 
+ type announcement struct {
+@@ -269,15 +274,22 @@ func getCsv() string {
+ 	if err != nil {
+ 		panic(err)
+ 	}
+-	csvString := "Email,Alias,Team ID,Image,Score,Play Time,Elapsed Time\n"
+-	for _, score := range teamScores {
+-		csvString += score.Team.Email + ","
+-		csvString += score.Team.Alias + ","
+-		csvString += score.Team.ID + ","
+-		csvString += score.Image.Name + ","
+-		csvString += fmt.Sprintf("%d,", score.Points)
+-		csvString += formatTime(score.PlayTime) + ","
+-		csvString += formatTime(score.ElapsedTime) + "\n"
++	teams, err := parseScoresIntoTeams(teamScores)
++	if err != nil {
++		panic(err)
++	}
++	csvString := "Rank,Email,Alias,Team ID,Name,Image(s),Play Time,Score,Adjust,Total\n"
++	for index, team := range teams {
++		csvString += fmt.Sprintf("%d,", index+1)
++		csvString += team.Email + ","
++		csvString += team.Alias + ","
++		csvString += team.ID + ","
++		csvString += team.FullName + ","
++		csvString += fmt.Sprintf("%d,", team.ImageCount)
++		csvString += team.Time + ","
++		csvString += fmt.Sprintf("%d,", team.Score)
++		csvString += fmt.Sprintf("%d,", team.Adjust)
++		csvString += fmt.Sprintf("%d\n", team.Total)
+ 	}
+ 	return csvString
+ }
+@@ -343,6 +355,41 @@ func getLastScore(newEntry *scoreEntry) (scoreEntry, error) {
+ 	return score, err
+ }
+ 
++func getAdjustmentMap() map[string]int {
++	initDatabase()
++	adjustmentMap := map[string]int{}
++	coll := mongoClient.Database(dbName).Collection("adjustments")
++	cur, err := coll.Find(context.TODO(), bson.D{})
++	if err != nil {
++		fmt.Println("error fetching adjustments:", err)
++		return adjustmentMap
++	}
++
++	adjustments := []teamAdjustment{}
++	if err := cur.All(context.TODO(), &adjustments); err != nil {
++		fmt.Println("error reading adjustments:", err)
++		return adjustmentMap
++	}
++
++	for _, adjustment := range adjustments {
++		adjustmentMap[adjustment.TeamID] = adjustment.Adjust
++	}
++
++	return adjustmentMap
++}
++
++func adjustTeamScore(teamID string, delta int) error {
++	initDatabase()
++	coll := mongoClient.Database(dbName).Collection("adjustments")
++	_, err := coll.UpdateOne(
++		context.TODO(),
++		bson.D{{"teamid", teamID}},
++		bson.D{{"$inc", bson.D{{"adjust", delta}}}, {"$set", bson.D{{"teamid", teamID}}}},
++		options.Update().SetUpsert(true),
++	)
++	return err
++}
++
+ func insertCompletion(completionRecord *completion) error {
+ 	initDatabase()
+ 	coll := mongoClient.Database(dbName).Collection("completion")
+@@ -439,5 +486,14 @@ func clearTeamScore(teamID string) error {
+ 		fmt.Println("No scoreboard results were deleted")
+ 	}
+ 
++	coll = mongoClient.Database(dbName).Collection("adjustments")
++	delResult, err = coll.DeleteMany(context.TODO(), bson.D{{"teamid", teamID}})
++	if err != nil {
++		return err
++	}
++	if delResult.DeletedCount == 0 {
++		fmt.Println("No adjustment results were deleted")
++	}
++
+ 	return nil
+ }
+diff --git a/main.go b/main.go
+index 2485311..5aef593 100644
+--- a/main.go
++++ b/main.go
+@@ -297,6 +297,7 @@ func scoreUpdate(c *gin.Context) {
+ func changeSettings(c *gin.Context) {
+ 	c.Request.ParseForm()
+ 	settingType := c.Request.Form.Get("settingType")
++	currentUser := getUser(c)
+ 
+ 	var err error
+ 	var msg string
+@@ -323,6 +324,27 @@ func changeSettings(c *gin.Context) {
+ 			fmt.Println("Error clearing testing_id results", err)
+ 		}
+ 		msg = "Cleared data for testing_id."
++	} else if settingType == "adjustScore" {
++		if currentUser.Username != "lead" {
++			err = errors.New("Only lead accounts can adjust scores")
++		} else {
++			teamAlias := c.Request.Form.Get("alias")
++			adjustmentText := c.Request.Form.Get("adjustment")
++			if !validateTeam(teamAlias) {
++				err = errors.New("Invalid team specified")
++			} else {
++				delta, parseErr := strconv.Atoi(adjustmentText)
++				if parseErr != nil {
++					err = parseErr
++				} else {
++					team := getTeam(teamAlias)
++					err = adjustTeamScore(team.ID, delta)
++					if err == nil {
++						msg = fmt.Sprintf("Adjusted %s by %d points.", team.Alias, delta)
++					}
++				}
++			}
++		}
+ 	}
+ 
+ 	c.HTML(http.StatusOK, "settings.html", pageData(c, "settings", gin.H{"scoring": acceptingScores, "msg": msg, "err": err}))
+diff --git a/parse.go b/parse.go
+index 1873652..6a87e38 100644
+--- a/parse.go
++++ b/parse.go
+@@ -47,7 +47,7 @@ func parseUpdate(cryptUpdate string) (scoreEntry, error) {
+ 		Vulns:  vulns,
+ 		Points: pointValue,
+ 	}
+-	// fmt.Println("newenntry", newEntry)
++	fmt.Println("newenntry", newEntry)
+ 	lastRecord, err := getLastScore(&newEntry)
+ 	if err != nil {
+ 		lastRecord = scoreEntry{}
+@@ -147,23 +147,32 @@ func parseScoresIntoTeams(scores []scoreEntry) ([]teamData, error) {
+ 		return td, nil
+ 	}
+ 
++	adjustments := getAdjustmentMap()
++
+ 	sort.SliceStable(scores, func(i, j int) bool {
+ 		return scores[i].Team.ID < scores[j].Team.ID
+ 	})
+ 
+ 	imageCount := 0
+ 	totalScore := 0
++	teamAdjust := 0
++	teamTotal := 0
+ 	playTime, _ := time.ParseDuration("0s")
+ 	currentTeam := scores[0].Team
+ 
+ 	for _, score := range scores {
+ 		if currentTeam.ID != score.Team.ID {
++			teamAdjust = adjustments[currentTeam.ID]
++			teamTotal = totalScore + teamAdjust
+ 			td = append(td, teamData{
+ 				ID:         currentTeam.ID,
+ 				Alias:      currentTeam.Alias,
+ 				Email:      currentTeam.Email,
++				FullName:   currentTeam.FullName,
+ 				ImageCount: imageCount,
+ 				Score:      totalScore,
++				Adjust:     teamAdjust,
++				Total:      teamTotal,
+ 				Time:       formatTime(playTime),
+ 			})
+ 			imageCount = 0
+@@ -175,22 +184,27 @@ func parseScoresIntoTeams(scores []scoreEntry) ([]teamData, error) {
+ 		totalScore += score.Points
+ 		playTime += score.PlayTime
+ 	}
++	teamAdjust = adjustments[scores[len(scores)-1].Team.ID]
++	teamTotal = totalScore + teamAdjust
+ 
+ 	td = append(td, teamData{
+ 		ID:         scores[len(scores)-1].Team.ID,
+ 		Alias:      scores[len(scores)-1].Team.Alias,
+ 		Email:      scores[len(scores)-1].Team.Email,
++		FullName:   scores[len(scores)-1].Team.FullName,
+ 		ImageCount: imageCount,
+ 		Score:      totalScore,
++		Adjust:     teamAdjust,
++		Total:      teamTotal,
+ 		Time:       formatTime(playTime),
+ 	})
+ 
+ 	sort.SliceStable(td, func(i, j int) bool {
+ 		var result bool
+-		if td[i].Score == td[j].Score {
++		if td[i].Total == td[j].Total {
+ 			result = td[i].Time < td[j].Time
+ 		} else {
+-			result = td[i].Score > td[j].Score
++			result = td[i].Total > td[j].Total
+ 		}
+ 		return result
+ 	})
+diff --git a/templates/detail.html b/templates/detail.html
+index 0c508e2..c440f61 100644
+--- a/templates/detail.html
++++ b/templates/detail.html
+@@ -43,12 +43,16 @@ pre {
+ <table class="table table-borderless table-dark table-striped">
+     <thead class="thead-dark">
+         <th>Play Time</th>
+-        <th>Total Score</th>
++        <th>Score</th>
++        <th>Adjust</th>
++        <th>Total</th>
+     </thead>
+     <tbody>
+         <tr>
+             <td>{{ .team.Time }}</td>
+             <td>{{ .team.Score }}</td>
++            <td>{{ .team.Adjust }}</td>
++            <td>{{ .team.Total }}</td>
+         </tr>
+     </tbody>
+ </table>
+diff --git a/templates/index.html b/templates/index.html
+index fcc7f33..b6062fb 100644
+--- a/templates/index.html
++++ b/templates/index.html
+@@ -1,6 +1,7 @@
+ {{ template "head.html" . }}
+ {{ template "nav.html" . }}
+ {{ $imageFilter := .imageFilter }}
++{{$fullNames := .fullNames}}
+ 
+ <div class="container">
+     <h2>Leaderboard</h2>
+@@ -17,7 +18,7 @@
+     {{ end }}
+     <div class="filterbuttons">
+         {{ if $imageFilter }}
+-        <p style="color: white; argin-right: 1rem;">
++        <p style="color: white; margin-right: 1rem;">
+             Only showing <span style="color: {{ $imageFilter.Color }}"><b>{{ $imageFilter.Name }}</b></span>!
+         </p>
+         &nbsp;
+@@ -50,11 +51,16 @@
+             <thead class="thead-dark">
+                 <th>Rank</th>
+                 <th>Team</th>
++                {{ if $fullNames }}
++                <th>Name</th>
++                {{ end }}
+                 {{ if not $imageFilter }}
+                 <th>Image(s)</th>
+                 {{ end }}
+                 <th>Play Time</th>
+                 <th>Score</th>
++                <th>Adjust</th>
++                <th>Total</th>
+             </thead>
+             <tbody>
+                 {{ range $team_rank, $team := .scores }}
+@@ -75,6 +81,13 @@
+                             {{ $team.Alias }}
+                         </a>
+                     </td>
++                    {{ if $fullNames }}
++                    <td>
++                        <a href="{{ $linktext }}">
++                            {{ $team.FullName }}
++                        </a>
++                    </td>
++                    {{ end }}
+                     {{ if not $imageFilter }}
+                     <td>
+                         <a href="{{ $linktext }}">
+@@ -92,6 +105,16 @@
+                             {{ $team.Score }}
+                         </a>
+                     </td>
++                    <td>
++                        <a href="{{ $linktext }}">
++                            {{ $team.Adjust }}
++                        </a>
++                    </td>
++                    <td>
++                        <a href="{{ $linktext }}">
++                            {{ $team.Total }}
++                        </a>
++                    </td>
+                 </tr>
+                 {{ end }}
+             </tbody>
+diff --git a/templates/settings.html b/templates/settings.html
+index ec446f7..72e140b 100644
+--- a/templates/settings.html
++++ b/templates/settings.html
+@@ -38,6 +38,26 @@
+         <hr>
+     </center>
+ 
++    {{ if and .user (eq .user.Username "lead") }}
++    <h4 style="margin-bottom: 1.6rem">Adjust Scores</h4>
++    <form method="POST">
++        <input name="settingType" type="hidden" value="adjustScore">
++        <div class="form-group">
++            <input name="alias" type="text" class="form-control" placeholder="Team Alias" required>
++        </div>
++        <div class="form-group">
++            <input name="adjustment" type="number" class="form-control" placeholder="Points to add or subtract" required>
++        </div>
++        <div style="text-align: center;">
++            <button type="submit" class="btn btn-warning">Apply Adjustment</button>
++        </div>
++    </form>
++
++    <center>
++        <hr>
++    </center>
++    {{ end }}
++
+     <form method="POST" style="text-align: center;">
+         <input id="prodId" name="settingType" type="hidden" value="toggleScoring">
+ 

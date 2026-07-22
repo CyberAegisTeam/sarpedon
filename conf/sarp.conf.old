@@ -1,0 +1,142 @@
+event = "Team Round 4"
+password = 'abc_easy_as_123'
+timezone = "America/Los_Angeles"
+
+[[admin]]
+username = "safin"
+password = '#HJI@!#UYHYH#kjfhsr3y'
+
+[[image]]
+name = "WinTR4"
+color = "#82898F"
+
+[[image]]
+name = "LinTR4"
+color = "#EFA94A"
+
+[[admin]]
+username = "officer"
+password = '!C@nS33Y0urN@m3s'
+namePermission = true
+
+### TEAMS BELOW ###
+[[team]]
+email = 'safin.singh@gmail.com'
+alias = 'triton'
+id = '95c1f568-ab8c-4966-a134-5e0635e08a12'
+fullName = 'Safin Singh'
+
+[[team]]
+email = 'aaravarora09@gmail.com'
+alias = 'prometheus'
+id = '20f24d7e-a03c-43dd-ae68-5a21d0914ae4'
+fullName = 'Aarav Arora'
+
+[[team]]
+email = 'maodou1258@gmail.com'
+alias = 'aegir'
+id = 'd0a756e9-3b75-45c8-bf6f-19d7e58b99f0'
+fullName = 'Alex Lu'
+
+[[team]]
+email = 'dineshksahai@gmail.com'
+alias = 'kerberos'
+id = '84d0f86c-8d7e-4bbd-bf57-460ca8b5f38d'
+fullName = 'Dinesh Sahai'
+
+[[team]]
+email = 'spacegiant21@gmail.com'
+alias = 'skoll'
+id = 'bdc41935-77b9-4d48-8b27-718894a9200c'
+fullName = 'Aadit Gupta'
+
+[[team]]
+email = 'achtungbabyboiii@gmail.com'
+alias = 'hyperion'
+id = '439860da-1214-4eb2-9834-d9e0ccf8f178'
+fullName = 'Eric Yu'
+
+[[team]]
+email = 'zenglslir@gmail.com'
+alias = 'kale'
+id = 'da975f48-8d89-4c65-9798-d50fffc8cf79'
+fullName = 'Lilian Zeng'
+
+[[team]]
+email = 'Kanhay.Patil@gmail.com'
+alias = 'oberon'
+id = '78fcd17d-1b97-4728-a757-cd3dfb8aa631'
+fullName = 'Kanhay Patil'
+
+[[team]]
+email = 'aashrayr.101@gmail.com'
+alias = 'aegaeon'
+id = 'a3b6b38f-edb6-4ed6-9edc-090a03c946ae'
+fullName = 'Aashray Reddy'
+
+[[team]]
+email = 'ryeahsree@gmail.com'
+alias = 'charon'
+id = '05018c93-ade5-4f18-81a1-1bf320896621'
+fullName = 'Aarya Adusumilli'
+
+[[team]]
+email = 'dhyantsoni@gmail.com'
+alias = 'callisto'
+id = 'edc206e8-915a-4027-8d64-73fd37d7165c'
+fullName = 'Dhyan Soni'
+
+[[team]]
+email = 'lucas.masterson@gmail.com'
+alias = 'atlas'
+id = '504efa3e-9587-4622-8384-d6df9e7a4256'
+fullName = 'Lucas Masterson'
+
+[[team]]
+email = 'rudraj2022@gmail.com'
+alias = 'europa'
+id = '0efc27ae-a6e0-4632-8f41-232c50c66fa7'
+fullName = 'Rudra Joshi'
+
+[[team]]
+email = 'matthewhua10@gmail.com'
+alias = 'hydra'
+id = '5624e1d6-b944-4157-8689-899ea9e26897'
+fullName = 'Matthew Hua'
+
+[[team]]
+email = 'celinewu92127@gmail.com'
+alias = 'megaclite'
+id = 'ab96bf79-5e1f-4f0a-b24c-367e5c76370c'
+fullName = 'Celine Wu'
+
+[[team]]
+email = 'adhvay.cyberaegis@gmail.com'
+alias = 'titan'
+id = '0696e6bb-e83a-440f-9f3a-a2abfc820ffb'
+fullName = 'Adhvay Iyer'
+
+[[team]]
+email = 'moiz.lukmani@gmail.com'
+alias = 'pandora'
+id = '91bf66c4-5ee7-447c-8c58-41d64ee44501'
+fullName = 'Moiz Lukmani'
+
+[[team]]
+email = 'hasnain.baxamusa@gmail.com'
+alias = 'thebe'
+id = '68e513ee-28ab-433c-94a5-8175f2cf0245'
+fullName = 'Hasnain Baxamusa'
+
+[[team]]
+email = 'thechanneldot@gmail.com'
+alias = 'luna'
+id = '95c25b35-40ff-4857-be12-d8bb2c4d58dd'
+fullName = 'Ian Wu'
+
+
+[[team]]
+email = 'test@test.test'
+alias = 'tester'
+id = 'testing_id'
+fullName = 'Tester'

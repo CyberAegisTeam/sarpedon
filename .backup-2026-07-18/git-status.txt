@@ -1,0 +1,18 @@
+ D login.go
+ M templates/index.html
+ M util.go
+ M validation.go
+?? .backup-2026-07-18/
+?? adjustment_feature_backup.patch
+?? assets/assets_backup_09_09/
+?? assets/log.txt
+?? commands.txt
+?? conf/
+?? index.bak
+?? logs/
+?? nohup.out
+?? sarpedon-2026-07-01-183236.archive
+?? sarpedon-2026-07-11.archive
+?? sarpedon.conf.save
+?? sarpedon.conf.save.1
+?? template

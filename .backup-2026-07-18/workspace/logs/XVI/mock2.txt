@@ -1,0 +1,351 @@
+nohup: ignoring input
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (10): 
+	- feet.html
+	- head.html
+	- 
+	- announce.html
+	- detail.html
+	- error.html
+	- index.html
+	- login.html
+	- nav.html
+	- settings.html
+
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /login                    --> main.main.func2 (4 handlers)
+[GIN-debug] GET    /                         --> main.viewScoreboard (4 handlers)
+[GIN-debug] GET    /announcements            --> main.viewAnnounce (4 handlers)
+[GIN-debug] GET    /status/:id/:image        --> main.getStatus (4 handlers)
+[GIN-debug] POST   /login                    --> main.login (4 handlers)
+[GIN-debug] POST   /update                   --> main.scoreUpdate (4 handlers)
+[GIN-debug] GET    /team/:team               --> main.viewTeam (4 handlers)
+[GIN-debug] GET    /image/:image             --> main.viewImage (4 handlers)
+[GIN-debug] GET    /team/:team/image/:image  --> main.viewTeamImage (4 handlers)
+[GIN-debug] GET    /logout                   --> main.logout (5 handlers)
+[GIN-debug] GET    /settings                 --> main.viewSettings (5 handlers)
+[GIN-debug] POST   /settings                 --> main.changeSettings (5 handlers)
+[GIN-debug] GET    /export                   --> main.exportCsv (5 handlers)
+Initializing scoreboard data...
+Refreshing mongodb connection...
+2024/03/23 19:40:35 [sessions] ERROR! securecookie: the value is not valid
+[GIN] 2024/03/23 - 19:40:35 | 200 |    5.187134ms |    104.2.84.149 | GET      "/"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:40:38 | 400 |     194.957µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:40:51 | 400 |      75.798µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+2024/03/23 19:41:01 [sessions] ERROR! securecookie: the value is not valid
+[GIN] 2024/03/23 - 19:41:01 | 200 |    2.734924ms |    104.2.84.149 | GET      "/announcements"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:41:07 | 400 |      73.414µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:41:17 | 400 |     135.961µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+2024/03/23 19:41:30 [sessions] ERROR! securecookie: the value is not valid
+[GIN] 2024/03/23 - 19:41:30 | 200 |    2.421129ms |    104.2.84.149 | GET      "/"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:41:32 | 400 |      96.614µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:41:43 | 400 |      73.376µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:41:57 | 400 |     624.931µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:42:07 | 400 |     100.919µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:42:19 | 400 |      81.378µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:42:33 | 400 |      76.468µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:42:45 | 400 |      74.253µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:42:57 | 400 |      95.209µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:43:08 | 400 |      76.518µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:43:24 | 400 |       77.92µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:43:41 | 400 |      75.027µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:43:53 | 400 |     196.088µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+[GIN] 2024/03/23 - 19:44:03 | 200 |    3.168377ms |     104.35.27.9 | GET      "/"
+[GIN] 2024/03/23 - 19:44:03 | 200 |    6.005071ms |     104.35.27.9 | GET      "/assets/normalize.css"
+[GIN] 2024/03/23 - 19:44:03 | 200 |     404.987µs |     104.35.27.9 | GET      "/assets/bootstrap.css"
+[GIN] 2024/03/23 - 19:44:03 | 200 |     231.063µs |     104.35.27.9 | GET      "/assets/main.css"
+[GIN] 2024/03/23 - 19:44:03 | 200 |      259.98µs |     104.35.27.9 | GET      "/assets/bootstrap.js"
+[GIN] 2024/03/23 - 19:44:03 | 200 |     561.452µs |     104.35.27.9 | GET      "/assets/jquery.js"
+[GIN] 2024/03/23 - 19:44:03 | 200 |     309.324µs |     104.35.27.9 | GET      "/assets/bootstrap.js"
+[GIN] 2024/03/23 - 19:44:03 | 200 |     277.341µs |     104.35.27.9 | GET      "/assets/jquery.js"
+[GIN] 2024/03/23 - 19:44:03 | 200 |     172.664µs |     104.35.27.9 | GET      "/assets/favicon.png"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:44:08 | 400 |     114.798µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:44:24 | 400 |      73.628µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:44:39 | 400 |      91.041µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:44:50 | 400 |      77.378µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:45:01 | 400 |     134.576µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:45:11 | 400 |     101.369µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+[GIN] 2024/03/23 - 19:45:18 | 200 |    2.798429ms |  76.176.106.166 | GET      "/"
+[GIN] 2024/03/23 - 19:45:18 | 200 |     192.896µs |  76.176.106.166 | GET      "/assets/normalize.css"
+[GIN] 2024/03/23 - 19:45:18 | 200 |     337.889µs |  76.176.106.166 | GET      "/assets/bootstrap.css"
+[GIN] 2024/03/23 - 19:45:18 | 200 |     155.317µs |  76.176.106.166 | GET      "/assets/main.css"
+[GIN] 2024/03/23 - 19:45:18 | 200 |     256.037µs |  76.176.106.166 | GET      "/assets/bootstrap.js"
+[GIN] 2024/03/23 - 19:45:18 | 200 |     314.728µs |  76.176.106.166 | GET      "/assets/jquery.js"
+[GIN] 2024/03/23 - 19:45:18 | 200 |     167.155µs |  76.176.106.166 | GET      "/assets/favicon.png"
+[GIN] 2024/03/23 - 19:45:19 | 200 |    1.483858ms |  76.176.106.166 | GET      "/login"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:45:28 | 400 |      79.843µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:45:42 | 400 |     115.417µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+[GIN] 2024/03/23 - 19:45:43 | 303 |     235.548µs |  76.176.106.166 | POST     "/login"
+[GIN] 2024/03/23 - 19:45:43 | 200 |    2.459787ms |  76.176.106.166 | GET      "/"
+[GIN] 2024/03/23 - 19:45:45 | 200 |    1.706989ms |  76.176.106.166 | GET      "/settings"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:45:52 | 400 |      98.959µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:46:02 | 400 |      98.796µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:46:15 | 400 |      93.577µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:46:26 | 400 |      74.672µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:46:39 | 400 |     102.509µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:46:49 | 400 |     135.803µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:46:59 | 400 |     147.107µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+[GIN] 2024/03/23 - 19:47:04 | 200 |     166.304µs |   34.138.91.179 | GET      "/assets/favicon.png"
+[GIN] 2024/03/23 - 19:47:04 | 200 |      99.336µs |   34.138.63.118 | GET      "/assets/favicon.png"
+[GIN] 2024/03/23 - 19:47:04 | 200 |     216.292µs |    35.243.147.2 | GET      "/assets/favicon.png"
+[GIN] 2024/03/23 - 19:47:04 | 200 |     372.411µs |  34.139.209.196 | GET      "/assets/favicon.png"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:47:10 | 400 |      94.577µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:47:21 | 400 |      81.794µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:47:37 | 400 |    1.416181ms |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:47:48 | 400 |     125.928µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:48:01 | 400 |     114.533µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:48:17 | 400 |      89.995µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:48:29 | 400 |      72.643µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:48:46 | 400 |      71.813µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:49:02 | 400 |     111.544µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:49:12 | 400 |      82.853µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:49:25 | 400 |      71.165µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:49:42 | 400 |      96.606µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:49:53 | 400 |      97.914µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:50:05 | 400 |      97.389µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:50:15 | 400 |     102.326µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:50:31 | 400 |      77.843µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:50:41 | 400 |      83.019µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:50:56 | 400 |      97.594µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:51:09 | 400 |     150.127µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:51:25 | 400 |       92.09µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:51:42 | 400 |      76.714µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:51:52 | 400 |      92.406µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:52:08 | 400 |      72.006µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:52:19 | 400 |      83.251µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:52:34 | 400 |      94.094µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:52:46 | 400 |      110.84µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:52:56 | 400 |     108.536µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:53:08 | 400 |      120.48µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:53:22 | 400 |     114.124µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:53:38 | 400 |      74.592µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:53:55 | 400 |     100.122µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:54:10 | 400 |     109.234µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:54:25 | 400 |       74.95µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:54:42 | 400 |      73.318µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:54:59 | 400 |      86.062µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:55:13 | 400 |      97.747µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:55:23 | 400 |      93.278µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:55:35 | 400 |      91.317µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:55:52 | 400 |      96.925µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:56:08 | 400 |     113.632µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:56:19 | 400 |     107.945µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+[GIN] 2024/03/23 - 19:56:21 | 200 |    3.213462ms |    66.249.66.77 | GET      "/"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:56:29 | 400 |      93.061µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:56:46 | 400 |     240.082µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:56:57 | 400 |      77.005µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:57:13 | 400 |      79.718µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+[GIN] 2024/03/23 - 19:57:14 | 200 |    2.004131ms |  76.176.106.166 | GET      "/"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:57:26 | 400 |      112.92µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:57:42 | 400 |     114.821µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+[GIN] 2024/03/23 - 19:57:45 | 200 |    2.073353ms |  76.176.106.166 | GET      "/settings"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:57:59 | 400 |      72.149µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:58:15 | 400 |      94.335µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:58:27 | 400 |      93.154µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:58:45 | 400 |      98.477µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:58:57 | 400 |      82.778µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:59:12 | 400 |      99.501µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:59:23 | 400 |     130.843µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:59:33 | 400 |      98.789µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 19:59:49 | 400 |      87.838µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:00:03 | 400 |     103.909µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:00:20 | 400 |      103.01µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:00:36 | 400 |     124.149µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:00:49 | 400 |      97.904µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:01:04 | 400 |       77.32µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:01:18 | 400 |      89.536µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:01:30 | 400 |     146.584µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:01:43 | 400 |      90.674µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:01:53 | 400 |     102.165µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:02:04 | 400 |      74.129µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:02:20 | 400 |      94.452µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:02:34 | 400 |       76.26µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:02:51 | 400 |     100.069µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:03:02 | 400 |     121.096µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:03:17 | 400 |      73.573µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:03:32 | 400 |      87.539µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:03:44 | 400 |     157.691µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:03:59 | 400 |      74.008µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:04:12 | 400 |     117.815µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:04:23 | 400 |      94.618µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:04:36 | 400 |     112.578µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:04:50 | 400 |      98.496µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:05:04 | 400 |      78.472µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:05:16 | 400 |      95.199µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:05:32 | 400 |      84.216µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:05:49 | 400 |      86.988µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:06:03 | 400 |      96.745µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:06:13 | 400 |       78.72µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:06:25 | 400 |     112.757µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:06:42 | 400 |      77.451µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:06:55 | 400 |      80.894µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:07:09 | 400 |       94.46µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:07:23 | 400 |      71.255µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:07:34 | 400 |      78.082µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:07:45 | 400 |     178.454µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:08:02 | 400 |      70.789µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:08:12 | 400 |     125.142µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:08:24 | 400 |     104.013µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:08:34 | 400 |      89.702µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:08:45 | 400 |      74.623µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:09:02 | 400 |     146.099µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:09:19 | 400 |       92.16µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:09:34 | 400 |      80.989µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:09:49 | 400 |       92.66µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:10:03 | 400 |     246.273µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:10:14 | 400 |       74.09µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:10:28 | 400 |     113.476µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:10:39 | 400 |      92.946µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:10:50 | 400 |       91.42µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:11:06 | 400 |      81.902µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:11:23 | 400 |      92.371µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:11:38 | 400 |      77.285µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:11:53 | 400 |     110.258µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"
+ERROR: Invalid team id: YOUR-TEAMID-HERE
+[GIN] 2024/03/23 - 20:12:09 | 400 |     104.183µs |   76.88.115.175 | GET      "/status/YOUR-TEAMID-HERE/PRISONREALM"

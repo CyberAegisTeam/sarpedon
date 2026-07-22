@@ -1,0 +1,417 @@
+# change event title to round name == Practice Round 1
+# event = "Practice Round 6"
+timezone = "America/Los_Angeles"
+event = "Practice Round 1"
+password = "cyberaegisround111!"
+#password = "sigmaskibidibo2884!"
+[[admin]]
+# change admin creds every week and send it to scoring author
+username = "admin67"
+password = "strongpassw0rd_12345678_calculussssssss!1!1!1"
+namePermission = true
+
+[[admin]]
+username = "lead"
+password = "yp1234"
+# add/remove/change images
+# same as the name in aeacus config
+
+[[image]]
+name = "Windows_Round1"
+color = "#fe6869"
+
+[[image]]
+name = "Linux_Round1"
+color = "#b19cd8"
+
+# officer
+#[[admin]]
+#username = "officer"
+#password = '!C@nS33Y0urN@m3s'
+#namePermission = true
+		
+### TEAMS BELOW ###
+
+[[team]]
+email = 'arjun.krishnasd@gmail.com'
+alias = '8F2C1A'
+id = '5a2b1c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d'
+fullName = 'Arjun Krishna'
+
+[[team]]
+email = 'anayajainsdcyber@gmail.com'
+alias = '3E7F9B'
+id = '6b3c2d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e'
+fullName = 'Anaya Jain'
+
+[[team]]
+email = 'limeng.kevinyue@gmail.com'
+alias = 'D4A6E2'
+id = '7c4d3e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f'
+fullName = 'Kevin Yue'
+
+[[team]]
+email = 'jadonwang92@gmail.com'
+alias = '1B8C5F'
+id = '8d5e4f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8d'
+fullName = 'Jadon Wang'
+
+[[team]]
+email = 'vihaandashputre@gmail.com'
+alias = 'C7E19A'
+id = '9e6f5a7b-8c9d-0e1f-2a3b-4c5d6e7f8d9e'
+fullName = 'Vihaan Dashputre'
+
+[[team]]
+email = 'ls4ksadie@gmail.com'
+alias = '2D6F3E'
+id = 'af706b8c-9d0e-1f2a-3b4c-5d6e7f8d9e0f'
+fullName = 'Liam Svetina'
+
+[[team]]
+email = 'AkshayKotta94@gmail.com'
+alias = 'B5A7C1'
+id = 'b0717c9d-0e1f-2a3b-4c5d-6e7f8d9e0f1a'
+fullName = 'Akshay Kotta'
+
+[[team]]
+email = 'kihyun.lyu.inys@gmail.com'
+alias = '7E2B4D'
+id = 'c1728d0e-1f2a-3b4c-5d6e-7f8d9e0f1a2b'
+fullName = 'Eusheok Lyu'
+
+[[team]]
+email = 'youchengrules@gmail.com'
+alias = '4F8E6A'
+id = 'd2739e1f-2a3b-4c5d-6e7f-8d9e0f1a2b3c'
+fullName = 'Youcheng Yang'
+
+[[team]]
+email = 'tanishqcyberaegis@gmail.com'
+alias = 'A3D5F8'
+id = 'e38aaf2a-3b4c-5d6e-7f8d-9e0f1a2b3c4d'
+fullName = 'Tanishq Shah'
+
+[[team]]
+email = 'aldrichwang1029@gmail.com'
+alias = '6C1F9E'
+id = 'f49ab13b-4c5d-6e7f-8d9e-0f1a2b3c4d5e'
+fullName = 'Yueqi Wang'
+
+[[team]]
+email = 'vattikutisamyukta@gmail.com'
+alias = '9B7A2C'
+id = '05abc24c-5d6e-7f8d-9e0f-1a2b3c4d5e6f'
+fullName = 'Samyukta Vattikuti'
+
+[[team]]
+email = 'saisrutika724@gmail.com'
+alias = '2E5D8F'
+id = '16bcb35d-6e7f-8d9e-0f1a-2b3c4d5e6f70'
+fullName = 'Sai Srutika Koduri'
+
+[[team]]
+email = 'ranjith.manikao@gmail.com'
+alias = 'F1A4B7'
+id = '27cdc46e-7f8d-9e0f-1a2b-3c4d5e6f7081'
+fullName = 'Ranjith Mani'
+
+[[team]]
+email = 'leoqxu@gmail.com'
+alias = '8D3F6A'
+id = '38ded57f-8d9e-0f1a-2b3c-4d5e6f708192'
+fullName = 'Leo Xu'
+
+[[team]]
+email = 'ishnapatil13@gmail.com'
+alias = '5C9E1B'
+id = '49eee6a8-9e0f-1a2b-3c4d-5e6f70819203'
+fullName = 'Ishna Patil'
+
+[[team]]
+email = 'aanyachavan03@gmail.com'
+alias = 'B2D7E4'
+id = '5a0ff7b9-af1a-2b3c-4d5e-6f7081920314'
+fullName = 'Aanya Chavan'
+
+[[team]]
+email = 'battularitvik@gmail.com'
+alias = '7E6C2F'
+id = '6b10a8ca-b02b-3c4d-5e6f-70819203142a'
+fullName = 'Ritvik Battula'
+
+[[team]]
+email = 'lithe.riana@gmail.com'
+alias = 'C4F93A'
+id = '7c21b9db-c13c-4d5e-6f70-8192031425b3'
+fullName = 'Riana Battula'
+
+[[team]]
+email = 'eeshwarsivareddy@gmail.com'
+alias = '3A5E8D'
+id = '8d32caec-d24d-5e6f-7081-920314256bc4'
+fullName = 'Eeshwar Sivareddy'
+
+[[team]]
+email = 'haydenshan14@gmail.com'
+alias = '9F1C7B'
+id = '9e43dbfd-e35e-6f70-8192-0314257cd5d5'
+fullName = 'hayden Shan'
+
+[[team]]
+email = 'shriyanspal22@gmail.com'
+alias = '6B8A4E'
+id = 'af54ec0e-f46f-7081-9203-1425e7dee6e6'
+fullName = 'Shriyans Pal'
+
+[[team]]
+email = 'methindri@gmail.com'
+alias = 'D3B6F1'
+id = 'b0650f1f-a58a-8192-0314-25e8f1eff7f7'
+fullName = 'Methindri Jayasekara'
+
+[[team]]
+email = 'aumbarman@gmail.com'
+alias = '2F7C9A'
+id = 'c1761a2a-b69b-9203-1425-e8f2a2f0a8a8'
+fullName = 'Aum Barman'
+
+[[team]]
+email = 'ishanth874@gmail.com'
+alias = 'E8D2B5'
+id = 'd2872b3b-c7ac-0314-2526-f9a3b3a1b9b9'
+fullName = 'Ishanth Paka'
+
+[[team]]
+email = 'andyzhu1514@gmail.com'
+alias = '5A4F1E'
+id = 'e3983c4c-d8bd-1425-3637-a0b4c4b2caca'
+fullName = 'Andy Zhu'
+
+[[team]]
+email = 'aditi.patil4210@gmail.com'
+alias = 'A9C6D3'
+id = 'f4a94d5d-e9ce-2536-4748-b1c5d5c3dbdb'
+fullName = 'Aditi Patil'
+
+[[team]]
+email = 'vihaanu099@gmail.com'
+alias = '7D1B8F'
+id = '05ba5e6e-f0df-3647-5859-c2d6e6d4ecec'
+fullName = 'Vihaan Uttamchandani'
+
+[[team]]
+email = 'ziyang.qinw@gmail.com'
+alias = 'C2E5A8'
+id = '16cb6f7f-a1e0-475a-696a-d3e7f7e5fdfd'
+fullName = 'Ziyang Qin'
+
+[[team]]
+email = 'millerislucky@gmail.com'
+alias = '4B92C1'
+id = '27dc708a-b2f1-586b-7a7b-e4f8a8f6e0e0'
+fullName = 'Miller Zhang'
+
+[[team]]
+email = 'meerakapdi25@gmail.com'
+alias = 'F7D4B2'
+id = '38ed819b-c3a2-697c-8b8c-f5a9b9a7f1f1'
+fullName = 'Meera Kapdi'
+
+[[team]]
+email = 'mthoziyoor@gmail.com'
+alias = '8E6F3D'
+id = '49fe92ac-d4b3-7a8d-9c9d-a6babab8a2a2'
+fullName = 'Megha Thoziyoor'
+
+[[team]]
+email = 'mila.g.kikuchi@gmail.com'
+alias = '3C1F9E'
+id = '5a0fa3bd-e5c4-8b9e-ad0e-b7cbcbc9b3b3'
+fullName = 'Mila Kikuchi'
+
+[[team]]
+email = 'aalukmani12@gmail.com'
+alias = 'B5E8C7'
+id = '6b1ab4ce-f6d5-9caf-be1f-c8dcdcdbbc4c'
+fullName = 'Abi Ali Lukmani'
+
+[[team]]
+email = 'sudame.nikhil2@gmail.com'
+alias = 'D1A76F'
+id = '7c2bc5df-a7e6-adba-cf20-d9ededdcbdd5d'
+fullName = 'Nikhil Sudame'
+
+[[team]]
+email = 'emailvyaan@gmail.com'
+alias = '6F2B4A'
+id = '8d3cd6e0-b8f7-becb-d031-e0fefeedd0e0'
+fullName = 'Vyaan Gyaltsen'
+
+[[team]]
+email = 'aditya.yogi.cyber@gmail.com'
+alias = 'A7D9E3'
+id = '9e4de7f1-c9a8-cfdc-e142-f1a1a1f1e1f1'
+fullName = 'Aditya Yogi'
+
+[[team]]
+email = 'aanyapshah@gmail.com'
+alias = '4E5C82'
+id = 'af5ef8a2-dab9-d0ed-f253-a2b2b2a2f2a2'
+fullName = 'Aanya Shah'
+
+[[team]]
+email = 'Lukeqymao@gmail.com'
+alias = 'C8F1B6'
+id = 'b06fa9b3-ebca-e1fe-a364-b3c3c3b3a3a3'
+fullName = 'Luke Mao'
+
+[[team]]
+email = 'sahajv.vahia@gmail.com'
+alias = '9BA4D1'
+id = 'c179aac4-fcdb-f2af-b475-c4d4d4c4b4b4'
+fullName = 'Sahaj Vahia'
+
+[[team]]
+email = 'ketav.srivastava19@gmail.com'
+alias = '2D7F3E'
+id = 'd28abbd5-edec-a3ba-c586-d5e5e5d5c5c5'
+fullName = 'Ketav Srivastava'
+
+[[team]]
+email = 'ozankor134@gmail.com'
+alias = 'F5C27A'
+id = 'e39bcce6-fefd-b4cb-d697-e6f6f6e6d6d6'
+fullName = 'Ozan Korkmaz'
+
+[[team]]
+email = 'alexking43824@gmail.com'
+alias = '7A6E1C'
+id = 'f4acddf7-a0b0-c5dc-e7a8-f7a7a7f7e7e7'
+fullName = 'Alex King'
+
+[[team]]
+email = 'reyanshsdca@gmail.com'
+alias = '3F9A8D'
+id = '05bdeea8-b1c1-d6ed-f8b9-a8b8b8a8f8f8'
+fullName = 'Reyansh Madiraju'
+
+[[team]]
+email = 'suhanisd2012@gmail.com'
+alias = 'B1E6F4'
+id = '16ceffb9-c2d2-e7fe-a9ca-b9c9c9b9a0a0'
+fullName = 'Suhani Dalmiya'
+
+[[team]]
+email = 'ayaandadia8@gmail.com'
+alias = '8C3B7F'
+id = '27d0a0ca-d3e3-f8af-badb-cadadaca1a1a'
+fullName = 'Ayaan Dadia'
+
+[[team]]
+email = 'mdaftary24@gmail.com'
+alias = '5E7D2A'
+id = '38e1b1db-e4f4-a9ba-cbec-dbebebe2b2b2'
+fullName = 'Maahir Daftary'
+
+[[team]]
+email = 'gvihaan2026@gmail.com'
+alias = 'D9A5C3'
+id = '49f2c2ec-f5a5-babb-dcfd-ececec3c3c3c'
+fullName = 'VIHAAN GUPTA'
+
+[[team]]
+email = 'colton.t.zhang@gmail.com'
+alias = '6B8F1E'
+id = '5a03d3fd-a6b6-cbc0-eddee-fdfdfd4d4d4d'
+fullName = 'Colton Zhang'
+
+[[team]]
+email = 'rayansverma@gmail.com'
+alias = 'A2E3B8'
+id = '6b14e4a0-b7c7-dcd1-feel-a0a0a05e5e5e'
+fullName = 'Rayan Verma'
+
+[[team]]
+email = 'nishantmantrav01@gmail.com'
+alias = '7F6C4B'
+id = '7c25f5b1-c8d8-ede2-af2a-b1b1b16f6f6f'
+fullName = 'Nishant Sari'
+
+[[team]]
+email = 'aadhyasatish14@gmail.com'
+alias = 'C3D1F6'
+id = '8d369ac2-d9e9-fef3-ba3b-c2c2c28a8a8a'
+fullName = 'Aadhya Satish'
+
+[[team]]
+email = 'joshua.681.chou@gmail.com'
+alias = '4E7A9D'
+id = '9e47add3-eafa-afaf-cb4c-d3d3d39b9b9b'
+fullName = 'Joshua Chou'
+
+[[team]]
+email = 'riaanthotakura12@gmail.com'
+alias = 'F8B2E5'
+id = 'af58bee4-f1ab-b0ba-dc5d-e4e4e4acaca'
+fullName = 'Riaan Thotakura'
+
+[[team]]
+email = 'madelynchensd@gmail.com'
+alias = '1D9C6E'
+id = 'b069cff5-a2ac-c1cb-ed6e-f5f5f5bdbdbd'
+fullName = 'Madelyn Chen'
+
+[[team]]
+email = 'ej.zhang178@gmail.com'
+alias = 'B7A3F1'
+id = 'c17aa0a6-b3bd-d2dc-fe7f-a6a6a6bebefe'
+fullName = 'Evan Zhang'
+
+[[team]]
+email = 'yiyenlin2@gmail.com'
+alias = '6A2E8C'
+id = 'd28bb1b7-c4ce-e3ed-af8a-b7b7b7cfcfcf'
+fullName = 'Yi-Yen Lin'
+
+[[team]]
+email = 'hclin329@gmail.com'
+alias = 'E5F9A2'
+id = 'e39cc2c8-d5df-f4fe-ba9b-c8c8c8e0e0e0'
+fullName = 'Hsu-Cheng Lin'
+
+[[team]]
+email = 'Jeevika.05.brahmbhatt@gmail.com'
+alias = '3C1B7D'
+id = 'f4add3d9-e6e0-a5af-cbac-d9d9d9f1f1f1'
+fullName = 'Jeevika Brahmbhatt'
+
+[[team]]
+email = 'angadasuri@gmail.com'
+alias = 'A6D4C9'
+id = '05beea0a-f7f1-b6ba-dccdd-eaeaea0a2a2a'
+fullName = 'Angad Sure'
+
+[[team]]
+email = 'ranvirasuri@gmail.com'
+alias = '7F5A3E'
+id = '16cffb1b-a8a2-c7cb-eddee-fbfbfb1b3b3b'
+fullName = 'Ranvir Suri'
+
+[[team]]
+email = 'adeebalina@gmail.com'
+alias = 'C2E7B5'
+id = '27d0ac2c-b9b3-d8dc-feeaf-acac c2c4c4c'
+fullName = 'Alina Ansari'
+
+[[team]]
+email = 'medhansh.gg13@gmail.com'
+alias = '9E4F2D'
+id = '28a1b2c3-d4e5-f6a7-b8c9-d0e1f2a3b4c5'
+fullName = 'Medhansh Giridhara'
+
+[[team]]
+email = 'test@test.test'
+alias = 'tester'
+id = 'testing_id'
+fullName = 'Tester'
