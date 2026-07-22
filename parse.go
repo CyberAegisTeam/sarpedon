@@ -146,6 +146,10 @@ func parseScoresIntoTeams(scores []scoreEntry) ([]teamData, error) {
 	if len(scores) <= 0 {
 		return td, nil
 	}
+	adjustments, err := getAdjustmentMap()
+	if err != nil {
+		return td, err
+	}
 
 	sort.SliceStable(scores, func(i, j int) bool {
 		return scores[i].Team.ID < scores[j].Team.ID
@@ -158,12 +162,17 @@ func parseScoresIntoTeams(scores []scoreEntry) ([]teamData, error) {
 
 	for _, score := range scores {
 		if currentTeam.ID != score.Team.ID {
+			configuredTeam := getTeamByID(currentTeam.ID)
+			adjustment := adjustments[currentTeam.ID]
 			td = append(td, teamData{
 				ID:         currentTeam.ID,
 				Alias:      currentTeam.Alias,
 				Email:      currentTeam.Email,
+				FullName:   configuredTeam.FullName,
 				ImageCount: imageCount,
 				Score:      totalScore,
+				Adjust:     adjustment,
+				Total:      totalScore + adjustment,
 				Time:       formatTime(playTime),
 			})
 			imageCount = 0
@@ -176,21 +185,26 @@ func parseScoresIntoTeams(scores []scoreEntry) ([]teamData, error) {
 		playTime += score.PlayTime
 	}
 
+	configuredTeam := getTeamByID(scores[len(scores)-1].Team.ID)
+	adjustment := adjustments[scores[len(scores)-1].Team.ID]
 	td = append(td, teamData{
 		ID:         scores[len(scores)-1].Team.ID,
 		Alias:      scores[len(scores)-1].Team.Alias,
 		Email:      scores[len(scores)-1].Team.Email,
+		FullName:   configuredTeam.FullName,
 		ImageCount: imageCount,
 		Score:      totalScore,
+		Adjust:     adjustment,
+		Total:      totalScore + adjustment,
 		Time:       formatTime(playTime),
 	})
 
 	sort.SliceStable(td, func(i, j int) bool {
 		var result bool
-		if td[i].Score == td[j].Score {
+		if td[i].Total == td[j].Total {
 			result = td[i].Time < td[j].Time
 		} else {
-			result = td[i].Score > td[j].Score
+			result = td[i].Total > td[j].Total
 		}
 		return result
 	})

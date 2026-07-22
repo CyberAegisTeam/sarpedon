@@ -70,6 +70,7 @@ func main() {
 		authRoutes.GET("/logout", logout)
 		authRoutes.GET("/settings", viewSettings)
 		authRoutes.POST("/settings", changeSettings)
+		authRoutes.POST("/team/:team/adjust", adjustTeam)
 		authRoutes.GET("/export", exportCsv)
 	}
 
@@ -168,7 +169,14 @@ func viewTeam(c *gin.Context) {
 		}
 	}
 
-	c.HTML(http.StatusOK, "detail.html", pageData(c, "Scoreboard for "+teamName, gin.H{"data": teamScore, "team": teamData, "labels": labels, "images": images}))
+	c.HTML(http.StatusOK, "detail.html", pageData(c, "Scoreboard for "+teamName, gin.H{
+		"data":            teamScore,
+		"team":            teamData,
+		"labels":          labels,
+		"images":          images,
+		"adjusted":        c.Query("adjusted"),
+		"adjustmentError": c.Query("adjustmentError"),
+	}))
 }
 
 func exportCsv(c *gin.Context) {
@@ -218,7 +226,15 @@ func viewTeamImage(c *gin.Context) {
 		}
 	}
 
-	c.HTML(http.StatusOK, "detail.html", pageData(c, "Scoreboard for "+teamName, gin.H{"data": teamScore, "team": teamData, "labels": labels, "images": images, "imageFilter": getImage(imageName)}))
+	c.HTML(http.StatusOK, "detail.html", pageData(c, "Scoreboard for "+teamName, gin.H{
+		"data":            teamScore,
+		"team":            teamData,
+		"labels":          labels,
+		"images":          images,
+		"imageFilter":     getImage(imageName),
+		"adjusted":        c.Query("adjusted"),
+		"adjustmentError": c.Query("adjustmentError"),
+	}))
 }
 
 func getStatus(c *gin.Context) {
@@ -294,6 +310,27 @@ func scoreUpdate(c *gin.Context) {
 	c.JSON(200, gin.H{"status": "OK"})
 }
 
+func adjustTeam(c *gin.Context) {
+	teamName := c.Param("team")
+	if !validateString(teamName) || !validateTeam(teamName) {
+		errorOutGraceful(c, errors.New("Invalid team name"))
+		return
+	}
+
+	delta, err := strconv.Atoi(c.PostForm("adjustment"))
+	if err != nil {
+		c.Redirect(http.StatusSeeOther, "/team/"+teamName+"?adjustmentError=Adjustment+must+be+a+whole+number")
+		return
+	}
+
+	team := getTeam(teamName)
+	if err := adjustTeamScore(team.ID, delta); err != nil {
+		c.Redirect(http.StatusSeeOther, "/team/"+teamName+"?adjustmentError=Failed+to+save+adjustment")
+		return
+	}
+	c.Redirect(http.StatusSeeOther, "/team/"+teamName+"?adjusted="+strconv.Itoa(delta))
+}
+
 func changeSettings(c *gin.Context) {
 	c.Request.ParseForm()
 	settingType := c.Request.Form.Get("settingType")
@@ -331,11 +368,19 @@ func changeSettings(c *gin.Context) {
 func pageData(c *gin.Context, title string, ginMap gin.H) gin.H {
 	newGinMap := gin.H{}
 	newGinMap["title"] = title
-	newGinMap["user"] = getUser(c)
+	user := getUser(c)
+	newGinMap["user"] = user
 	newGinMap["event"] = sarpConfig.Event
 	newGinMap["config"] = sarpConfig
 	for key, value := range ginMap {
 		newGinMap[key] = value
+	}
+	newGinMap["fullNames"] = false
+	for _, admin := range sarpConfig.Admin {
+		if admin.Username == user {
+			newGinMap["fullNames"] = admin.NamePermission
+			break
+		}
 	}
 	return newGinMap
 }

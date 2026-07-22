@@ -43,15 +43,35 @@ pre {
 <table class="table table-borderless table-dark table-striped">
     <thead class="thead-dark">
         <th>Play Time</th>
-        <th>Total Score</th>
+		<th>Score</th>
+		<th>Adjust</th>
+		<th>Total</th>
     </thead>
     <tbody>
         <tr>
             <td>{{ .team.Time }}</td>
             <td>{{ .team.Score }}</td>
+			<td>{{ .team.Adjust }}</td>
+			<td>{{ .team.Total }}</td>
         </tr>
     </tbody>
 </table>
+
+{{ if .user }}
+<br>
+<h4>Adjust Score</h4>
+<form method="POST" action="/team/{{ .team.Alias }}/adjust">
+    <label for="adjustment">Points to add or subtract:</label>
+    <input id="adjustment" name="adjustment" type="number" step="1" required>
+    <button type="submit" class="btn btn-warning">Apply Adjustment</button>
+</form>
+{{ if .adjusted }}
+<p style="color: lightgreen; text-align: center;">Adjustment of {{ .adjusted }} points applied.</p>
+{{ end }}
+{{ if .adjustmentError }}
+<p style="color: lightcoral; text-align: center;">{{ .adjustmentError }}</p>
+{{ end }}
+{{ end }}
 
 {{ $team := .team }}
 

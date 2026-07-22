@@ -59,6 +59,8 @@
                 {{ end }}
                 <th>Play Time</th>
                 <th>Score</th>
+				<th>Adjust</th>
+				<th>Total</th>
             </thead>
             <tbody>
                 {{ range $team_rank, $team := .scores }}
@@ -103,6 +105,16 @@
                             {{ $team.Score }}
                         </a>
                     </td>
+					<td>
+						<a href="{{ $linktext }}">
+							{{ $team.Adjust }}
+						</a>
+					</td>
+					<td>
+						<a href="{{ $linktext }}">
+							{{ $team.Total }}
+						</a>
+					</td>
                 </tr>
                 {{ end }}
             </tbody>

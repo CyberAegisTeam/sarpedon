@@ -47,6 +47,7 @@ type vulnItem struct {
 
 type adminData struct {
 	Username, Password string
+	NamePermission     bool
 }
 
 type imageData struct {
@@ -56,9 +57,14 @@ type imageData struct {
 }
 
 type teamData struct {
-	ID, Alias, Email  string
-	ImageCount, Score int
-	Time              string
+	ID, Alias, Email, FullName       string
+	ImageCount, Score, Adjust, Total int
+	Time                             string
+}
+
+type teamAdjustment struct {
+	TeamID string `bson:"teamid,omitempty"`
+	Adjust int    `bson:"adjust,omitempty"`
 }
 
 type announcement struct {
@@ -343,6 +349,37 @@ func getLastScore(newEntry *scoreEntry) (scoreEntry, error) {
 	return score, err
 }
 
+func getAdjustmentMap() (map[string]int, error) {
+	initDatabase()
+	adjustmentMap := map[string]int{}
+	coll := mongoClient.Database(dbName).Collection("adjustments")
+	cursor, err := coll.Find(context.TODO(), bson.D{})
+	if err != nil {
+		return adjustmentMap, err
+	}
+
+	adjustments := []teamAdjustment{}
+	if err := cursor.All(context.TODO(), &adjustments); err != nil {
+		return adjustmentMap, err
+	}
+	for _, adjustment := range adjustments {
+		adjustmentMap[adjustment.TeamID] = adjustment.Adjust
+	}
+	return adjustmentMap, nil
+}
+
+func adjustTeamScore(teamID string, delta int) error {
+	initDatabase()
+	coll := mongoClient.Database(dbName).Collection("adjustments")
+	_, err := coll.UpdateOne(
+		context.TODO(),
+		bson.D{{"teamid", teamID}},
+		bson.D{{"$inc", bson.D{{"adjust", delta}}}, {"$set", bson.D{{"teamid", teamID}}}},
+		options.Update().SetUpsert(true),
+	)
+	return err
+}
+
 func insertCompletion(completionRecord *completion) error {
 	initDatabase()
 	coll := mongoClient.Database(dbName).Collection("completion")
@@ -437,6 +474,15 @@ func clearTeamScore(teamID string) error {
 	}
 	if delResult.DeletedCount == 0 {
 		fmt.Println("No scoreboard results were deleted")
+	}
+
+	coll = mongoClient.Database(dbName).Collection("adjustments")
+	delResult, err = coll.DeleteMany(context.TODO(), bson.D{{"teamid", teamID}})
+	if err != nil {
+		return err
+	}
+	if delResult.DeletedCount == 0 {
+		fmt.Println("No adjustment results were deleted")
 	}
 
 	return nil
